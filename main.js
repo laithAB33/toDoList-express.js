@@ -7,6 +7,7 @@ const global_ErrorHandler = require('./controllers_actions/global_errorHandler.j
 const cookieParser = require('cookie-parser')
 const refresh_Router = require('./Routes/refresh_Router.js')
 const logout_Router = require('./Routes/logout_Router.js')
+const cors = require('cors');
 
 const app = express();
 const PORT = process.env.PORT;
@@ -20,6 +21,7 @@ mongoose.connect(url)
             console.log(err)
         })
 
+app.use(cors()); // error in frontend
 app.use(express.json());    //body-parser
 app.use(cookieParser())
 
